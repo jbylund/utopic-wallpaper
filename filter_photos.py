@@ -4,6 +4,21 @@ import sys
 import random
 group_photos = json.load(open('group_photos.json','r'))
 
+from xml.sax.saxutils import escape, unescape
+# escape() and unescape() takes care of &, < and >.
+html_escape_table = {
+  '"': "&quot;",
+  "'": "&apos;"
+}
+html_unescape_table = {v:k for k, v in html_escape_table.items()}
+
+def html_escape(text):
+  return escape(text, html_escape_table)
+
+def html_unescape(text):
+  return unescape(text, html_unescape_table)
+
+
 keys_to_save = set()
 keys_to_save.add('width_o')
 keys_to_save.add('height_o')
@@ -34,8 +49,11 @@ for photo in group_photos['photos']['photo']:
   filtered_photos.append(photo)
 
 for photo in random.sample(filtered_photos,len(filtered_photos)):
-  human_title = "{} by {}".format(photo.get('title',"?").encode('utf8').title(), photo.get('ownername',"?").encode('utf8'))
   try:
+    human_title = "{} by {}".format(
+        html_escape(photo.get('title',"?").encode('ascii', 'xmlcharrefreplace').title()),
+        html_escape(photo.get('ownername',"?").encode('ascii', 'xmlcharrefreplace'))
+      )
     print '<img border="0" src="{}" title="{}" alt="{}" width="{}" height="{}">'.format(
         photo['url_m'],
         human_title,
