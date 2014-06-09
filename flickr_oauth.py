@@ -100,7 +100,7 @@ try:
   response = urllib2.urlopen(signed_url).read()
   response_obj = json.loads(response)
   pp = pprint.PrettyPrinter(indent=4)
-  json.dump(response_obj,open("group_photos.json","w"))
+  json.dump(response_obj,open("group_photos.json","w"),sort_keys=True,indent=4)
 except urllib2.HTTPError, e:
   print e.code
   print e.msg
