@@ -2,6 +2,10 @@
 import json
 import sys
 import random
+
+if len(sys.argv) > 1:
+  random.seed(sys.argv[1])
+
 group_photos = json.load(open('group_photos.json','r'))
 
 from xml.sax.saxutils import escape, unescape
@@ -27,6 +31,7 @@ keys_to_save.add('url_m')
 keys_to_save.add('url_o')
 keys_to_save.add('ownername')
 keys_to_save.add('owner')
+keys_to_save.add('id')
 
 owners_seen = set()
 filtered_photos = list()
@@ -48,21 +53,31 @@ for photo in group_photos['photos']['photo']:
       photo.pop(key)
   filtered_photos.append(photo)
 
+poolid = "2535978@N21"
+num_photos = 0
 for photo in random.sample(filtered_photos,len(filtered_photos)):
   try:
     human_title = "{} by {}".format(
         html_escape(photo.get('title',"?").encode('ascii', 'xmlcharrefreplace').title()),
         html_escape(photo.get('ownername',"?").encode('ascii', 'xmlcharrefreplace'))
       )
-    print '<img border="0" src="{}" title="{}" alt="{}" width="{}" height="{}">'.format(
-        photo['url_m'],
-        human_title,
-        human_title,
-        photo.get('width_m',500),
-        photo.get('height_m',375)
+    photo_page = "https://www.flickr.com/photos/{owner}/{pid}/in/pool-{poolid}".format(
+        owner=photo.get('owner'),
+        pid=photo.get('id'),
+        poolid=poolid
       )
+    print '<img border="0" src="{src}" title="{title}" alt="{title}" width="{width}" height="{height}">'.format(
+        url = photo_page,
+        src = photo['url_m'],
+        title = human_title,
+        width = photo.get('width_m',500),
+        height = photo.get('height_m',375)
+      )
+    num_photos += 1
   except Exception as e:
     print photo
     print e
     raise
     sys.exit(1)
+  if num_photos > 9:
+    break
