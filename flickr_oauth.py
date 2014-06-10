@@ -64,6 +64,7 @@ def build_request(url,idict):
   query_string = make_query_string(idict)
   return "{}?{}".format(url,query_string)
 
+release = sys.argv[1]
 try:
   p_dict = dict()
   try:
@@ -91,7 +92,7 @@ try:
   p_dict.pop('fullname',None)
   p_dict['format'] = "json"
   p_dict['nojsoncallback'] = 1
-  p_dict['group_id'] = '2535978@N21'
+  p_dict['group_id'] = json.load(open("config.json"))[release]['group']
   p_dict['method'] = "flickr.groups.pools.getPhotos"
   p_dict['per_page'] = 500
   url = "https://api.flickr.com/services/rest/"
@@ -100,7 +101,7 @@ try:
   response = urllib2.urlopen(signed_url).read()
   response_obj = json.loads(response)
   pp = pprint.PrettyPrinter(indent=4)
-  json.dump(response_obj,open("group_photos.json","w"),sort_keys=True,indent=4)
+  json.dump(response_obj,open("{}.json".format(release),"w"),sort_keys=True,indent=4)
 except urllib2.HTTPError, e:
   print e.code
   print e.msg
