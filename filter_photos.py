@@ -66,13 +66,19 @@ for photo in random.sample(filtered_photos,len(filtered_photos)):
         pid=photo.get('id'),
         poolid=poolid
       )
-    print '<img border="0" src="{src}" title="{title}" alt="{title}" width="{width}" height="{height}">'.format(
+    img_tag = '<img border="0" src="{src}" title="{title}" alt="{title}" style="max-width:500px;max-height:500px;">'.format(
         url = photo_page,
         src = photo['url_m'],
         title = human_title,
         width = photo.get('width_m',500),
         height = photo.get('height_m',375)
       )
+    a_tag = '<a href="{src}" rel="lightbox-journey" title="{title}">{img_tag}</a>'.format(
+        src = photo['url_o'],
+        title = human_title,
+        img_tag = img_tag
+      )
+    print a_tag
     num_photos += 1
   except Exception as e:
     print photo
