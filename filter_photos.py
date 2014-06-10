@@ -3,10 +3,15 @@ import json
 import sys
 import random
 
-if len(sys.argv) > 1:
-  random.seed(sys.argv[1])
+subdomain = sys.argv[1].split(".")[0]
+if len(sys.argv) > 2:
+  random.seed(sys.argv[2])
 
-group_photos = json.load(open('group_photos.json','r'))
+config = json.load(open("config.json"))
+if subdomain not in config:
+  sys.exit(1)
+
+group_photos = json.load(open('{}.json'.format(subdomain),'r'))
 
 from xml.sax.saxutils import escape, unescape
 # escape() and unescape() takes care of &, < and >.
@@ -35,6 +40,9 @@ keys_to_save.add('id')
 owners_seen = set()
 filtered_photos = list()
 
+res_x = config[subdomain]['res_x']
+res_y = config[subdomain]['res_y']
+
 for photo in group_photos['photos']['photo']:
   if photo['owner'] in owners_seen:
     continue
@@ -42,20 +50,19 @@ for photo in group_photos['photos']['photo']:
 #  print owners_seen
   if 'height_o' not in photo:
     continue
-    print json.dumps(photo)
   if int(photo.get('height_o',0)) < 1600:
     continue
   if int(photo.get('width_o',0)) < 2560:
     continue
   ratio = float(photo.get('width_o',0)) / float(photo.get('height_o',1))
-  if ratio > 2562.0 / 1600.0 or ratio < 2558.0 / 1600.0: # this could be considered a little strict
+  if ratio > float(res_x + 1) / float(res_y) or ratio < float(res_x - 1) / float(res_y): # this could be considered a little strict
     continue
   for key in photo.keys():
     if key not in keys_to_save:
       photo.pop(key)
   filtered_photos.append(photo)
 
-poolid = "2535978@N21"
+poolid = config[subdomain]['group']
 num_photos = 0
 for photo in random.sample(filtered_photos,len(filtered_photos)):
   try:
