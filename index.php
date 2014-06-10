@@ -43,7 +43,7 @@ function draw_login_button()
 }
 
 draw_login_button();
-echo passthru("./filter_photos.py ".$_SESSION['seed'])
+echo passthru("./filter_photos.py ".$_SERVER['HTTP_HOST']." ".$_SESSION['seed'])
 ?>
 </div>
 </body>
