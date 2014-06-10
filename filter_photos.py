@@ -22,7 +22,6 @@ def html_escape(text):
 def html_unescape(text):
   return unescape(text, html_unescape_table)
 
-
 keys_to_save = set()
 keys_to_save.add('width_o')
 keys_to_save.add('height_o')
@@ -44,9 +43,12 @@ for photo in group_photos['photos']['photo']:
   if 'height_o' not in photo:
     continue
     print json.dumps(photo)
-  if int(photo.get('height_o',0)) < 1440:
+  if int(photo.get('height_o',0)) < 1600:
     continue
   if int(photo.get('width_o',0)) < 2560:
+    continue
+  ratio = float(photo.get('width_o',0)) / float(photo.get('height_o',1))
+  if ratio > 2562.0 / 1600.0 or ratio < 2558.0 / 1600.0: # this could be considered a little strict
     continue
   for key in photo.keys():
     if key not in keys_to_save:
@@ -85,5 +87,3 @@ for photo in random.sample(filtered_photos,len(filtered_photos)):
     print e
     raise
     sys.exit(1)
-  if num_photos > 9:
-    break
