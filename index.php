@@ -5,10 +5,9 @@
 <!-- Main style sheets for CSS2 capable browsers -->
 
 <link rel="stylesheet" type="text/css" media="screen" href="https://assets.ubuntu.com/sites/guidelines/css/dev/beta/ubuntu-styles.css" />
-<link rel="stylesheet" type="text/css" media="screen" href="https://assets.ubuntu.com/sites/ubuntu/1072/u/css/styles.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="https://assets.ubuntu.com/sites/ubuntu/latest/u/css/styles.css" />
 <link rel="stylesheet" type="text/css" media="screen and (min-width: 768px)" href="https://assets.ubuntu.com/sites/ubuntu/latest/u/css/global.css" />
-<link rel="stylesheet" type="text/css" media="print" href="https://assets.ubuntu.com/sites/ubuntu/1072/u/css/core-print.css" />
-
+<link rel="stylesheet" type="text/css" media="print" href="https://assets.ubuntu.com/sites/ubuntu/latest/u/css/core-print.css" />
 
 </head>
 <body>
@@ -16,6 +15,12 @@
 <?php
 require_once "common.php";
 session_start();
+
+// seed the randomness, it's very confusing if within a session things are moving around
+if(! isset($_SESSION['seed']))
+{
+  $_SESSION['seed'] = rand();
+}
 
 function draw_login_button()
 {
@@ -34,7 +39,7 @@ function draw_login_button()
 }
 
 draw_login_button();
-echo passthru("./filter_photos.py")
+echo passthru("./filter_photos.py ".$_SESSION['seed'])
 ?>
 </div>
 </body>
