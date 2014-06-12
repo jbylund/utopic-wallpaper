@@ -1,20 +1,24 @@
 {
     "raring": {
+        "animal": "ringtail",
         "group": "2130543@N24", 
         "res_x": 2560, 
         "res_y": 1600
     }, 
     "saucy": {
+        "animal": "salamander",
         "group": "2234951@N20", 
         "res_x": 2560, 
         "res_y": 1600
     }, 
     "trusty": {
+        "animal": "tahir",
         "group": "2535978@N21", 
         "res_x": 2560, 
         "res_y": 1600
     },
     "utopic": {
+        "animal": "unicorn",
         "group": "?????", 
         "res_x": 2560, 
         "res_y": 1600
