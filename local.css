@@ -1,0 +1,115 @@
+html, body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+#header {
+  text-align: center;
+  background: #c2c2c2;
+  margin: 0px;
+  width: 100%;
+  font-size:150%;
+  vertical-align: middle;
+  display: table-cell;
+  padding: 0px;
+}
+
+#headerwrapper {
+  min-height: 7%;
+  height: 7%;
+  width: 100%;
+  text-align: center;
+  background: #c2c2c2;
+  margin: 0px;
+  padding: 0px;
+  display: table;
+}
+
+#wrapper {
+  margin: 0px;
+  min-height: 86%;
+  height: 86%;
+  position: relative;
+  width: 100%;
+  display: table;
+}
+
+#leftcontainer {
+  background: #d7d7d7;
+  width: 75%;
+  display: table-cell;
+}
+
+#leftcontents {
+  background: #d7d7d7;
+  padding: 20px;
+}
+
+#rightcontainer {
+  display: table-cell;
+  background: #000000;
+  position: relative;
+}
+
+#rightcontents {
+  margin: 0px;
+  color: #fff; /*this is the text color*/
+}
+
+.hiddena {
+  background: #000000;
+  position: relative;
+}
+
+.hiddenb {
+  background: #00ffff;
+  position: relative;
+}
+
+.excluded_top {
+  height: auto;
+  background: #00ff00;
+  position: relative;
+}
+
+.excluded_both {
+  height: auto;
+  background: #ffff00;
+  position: relative;
+}
+
+.excluded_bot {
+  background: #0000ff;
+  position: absolute;
+  height: auto !important;
+  bottom: 0;
+  right: 0;
+}
+
+.all_visible {
+  position: fixed;
+  width:    25%;
+  top:      6px;
+  height:  auto;
+  left:     75%;
+  background: #808080;
+}
+
+#rightinner {
+  padding: 10px;
+}
+
+#footer {
+  min-height: 7%;
+  background: #c2c2c2;
+  clear: both;
+  margin: 0px;
+}
+
+p{
+/*  border: 0px;*/
+/*  margin: 0px;*/
+  text-align: justify;
+  padding: 10px;
+}
