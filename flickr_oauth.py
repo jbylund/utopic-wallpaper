@@ -96,7 +96,7 @@ try:
   p_dict['method'] = "flickr.groups.pools.getPhotos"
   p_dict['per_page'] = 500
   url = "https://api.flickr.com/services/rest/"
-  p_dict['extras'] = "description,license,date_upload,date_taken,owner_name,icon_server,original_format,last_update,geo,tags,machine_tags,o_dims,views,media,path_alias,url_m,url_o"
+  p_dict['extras'] = "description,license,date_upload,date_taken,owner_name,icon_server,original_format,last_update,geo,tags,machine_tags,o_dims,views,media,path_alias,url_m,url_o,url_h"
   signed_url = build_request(url, p_dict)
   response = urllib2.urlopen(signed_url).read()
   response_obj = json.loads(response)
