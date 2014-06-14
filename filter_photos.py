@@ -33,6 +33,7 @@ keys_to_save.add('width_o')
 keys_to_save.add('height_o')
 keys_to_save.add('title')
 keys_to_save.add('url_m')
+keys_to_save.add('url_n')
 keys_to_save.add('url_h')
 keys_to_save.add('url_o')
 keys_to_save.add('ownername')
@@ -77,12 +78,10 @@ for photo in random.sample(filtered_photos,len(filtered_photos)):
         pid=photo.get('id'),
         poolid=poolid
       )
-    img_tag = '<img border="0" src="{src}" title="{title}" alt="{title}" style="max-width:500px;max-height:500px;">'.format(
+    img_tag = '<img border="0" src="{src}" title="{title}" alt="{title}" style="max-width:320px;max-height:320px;">'.format(
         url = photo_page,
         src = photo['url_m'],
         title = human_title,
-        width = photo.get('width_m',500),
-        height = photo.get('height_m',375)
       )
     a_tag = '<a href="{src}" rel="lightbox-journey" title="{title}">{img_tag}</a>'.format(
         src = photo.get('url_h',photo.get('url_o')),
