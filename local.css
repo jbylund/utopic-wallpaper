@@ -6,81 +6,83 @@ html, body {
 
 #header {
   text-align: center;
-  background: #c2c2c2;
   margin: 0px;
   width: 100%;
-  font-size:150%;
+  font-size: 180%;
   vertical-align: middle;
   display: table-cell;
-  padding: 0px;
+  background: #dd4814;
+  color: #ffffff;
 }
 
 #headerwrapper {
-  min-height: 7%;
+  min-height: 50px;
   height: 7%;
   width: 100%;
   text-align: center;
-  background: #c2c2c2;
   margin: 0px;
-  padding: 0px;
   display: table;
 }
 
 #wrapper {
+  display: table;
+  height: 86%;
   margin: 0px;
   min-height: 86%;
-  height: 86%;
+  padding: 0px;
   position: relative;
   width: 100%;
-  display: table;
 }
 
 #leftcontainer {
-  background: #d7d7d7;
-  width: 75%;
+  width: 80%;
   display: table-cell;
 }
 
 #leftcontents {
-  background: #d7d7d7;
   padding: 20px;
 }
 
 #rightcontainer {
+  background: #aea79f;
+  font-size: 120%;
   display: table-cell;
-  background: #000000;
+  margin: 0px;
+  padding: 0px;
   position: relative;
+  vertical-align: top;
 }
 
 #rightcontents {
   margin: 0px;
-  color: #fff; /*this is the text color*/
+  padding: 0px;
+}
+
+#rightinner {
+  padding: 15px;
+  margin: 0px;
+  text-align: center;
 }
 
 .hiddena {
-  background: #000000;
   position: relative;
 }
 
 .hiddenb {
-  background: #00ffff;
   position: relative;
 }
 
 .excluded_top {
   height: auto;
-  background: #00ff00;
   position: relative;
 }
 
 .excluded_both {
   height: auto;
-  background: #ffff00;
   position: relative;
 }
 
 .excluded_bot {
-  background: #0000ff;
   position: absolute;
   height: auto !important;
   bottom: 0;
@@ -89,22 +91,17 @@ html, body {
 
 .all_visible {
   position: fixed;
-  width:    25%;
+  width:    20%;
   top:      6px;
   height:  auto;
-  left:     75%;
-  background: #808080;
-}
-
-#rightinner {
-  padding: 10px;
+  left:     80%;
 }
 
 #footer {
   min-height: 7%;
-  background: #c2c2c2;
   clear: both;
   margin: 0px;
+  background: #dd4814;
 }
 
 p{
@@ -112,4 +109,8 @@ p{
 /*  margin: 0px;*/
   text-align: justify;
   padding: 10px;
+}
+
+img{
+  padding: 5px;
 }
