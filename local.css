@@ -16,12 +16,12 @@ html, body {
 }
 
 #headerwrapper {
-  min-height: 50px;
-  height: 7%;
-  width: 100%;
-  text-align: center;
-  margin: 0px;
   display: table;
+  height: 7%;
+  margin: 0px;
+  min-height: 50px;
+  text-align: center;
+  width: 100%;
 }
 
 #wrapper {
@@ -41,6 +41,7 @@ html, body {
 
 #leftcontents {
   padding: 20px;
+  text-align: center;
 }
 
 #rightcontainer {
@@ -63,6 +64,30 @@ html, body {
   margin: 0px;
   text-align: center;
 }
+
+.purple {
+  color: #5e2750;
+}
+
+.purple:link {
+  color: #5e2750;
+}
+
+/* visited link */
+.purple:visited {
+  color: #5e2750;
+}
+
+/* mouse over link */
+.purple:hover {
+  color: #5e2750;
+}
+
+/* selected link */
+.purple:active {
+  color: #5e2750;
+}
+
 
 .hiddena {
   position: relative;
@@ -95,13 +120,6 @@ html, body {
   top:      6px;
   height:  auto;
   left:     80%;
-}
-
-#footer {
-  min-height: 7%;
-  clear: both;
-  margin: 0px;
-  background: #dd4814;
 }
 
 p{
