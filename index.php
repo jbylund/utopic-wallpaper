@@ -23,8 +23,8 @@ echo passthru("/usr/bin/python make_title.py ".$_SERVER['HTTP_HOST']);
 
 </head>
 <body>
-<div id="headerwrapper">
-  <div id="header">
+<div class="headerwrapper">
+  <div class="header">
     <div>
       <?php echo passthru("python make_title.py ".$_SERVER['HTTP_HOST']); ?>
     </div>
@@ -75,11 +75,12 @@ echo '      </div>'."\n".
      '      <div id="rightcontents">'."\n".
      '        <div id="rightinner">'."\n";
 draw_login_button();
+echo passthru("python make_drop_targets.py");
 echo '        </div>'."\n".
      '      </div>'."\n".
      '    </div>'."\n".
      '  </div>'."\n".
-     '  <div id="headerwrapper">'."\n";
+     '  <div class="headerwrapper">'."\n";
 echo passthru("cat footer_contents.html");
 echo '  </div>'."\n";
 
