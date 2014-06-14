@@ -12,11 +12,13 @@ echo passthru("/usr/bin/python make_title.py ".$_SERVER['HTTP_HOST']);
 <link rel="stylesheet" type="text/css" media="screen and (min-width: 768px)" href="https://assets.ubuntu.com/sites/ubuntu/latest/u/css/global.css" />
 <link rel="stylesheet" type="text/css" media="print" href="https://assets.ubuntu.com/sites/ubuntu/latest/u/css/core-print.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="local.css" />
-<script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
-<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="css/slimbox2.css" />
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
 <script type="text/javascript" src="src/slimbox2.js"></script>
 <script type="text/javascript" src="src/autoload.js"></script>
-<link rel="stylesheet" href="css/slimbox2.css" type="text/css" media="screen" />
+<script type="text/javascript" src="test.js"></script>
 
 </head>
 <body>
@@ -27,10 +29,27 @@ echo passthru("/usr/bin/python make_title.py ".$_SERVER['HTTP_HOST']);
     </div>
   </div>
 </div>
-<div id="pageWrapper">
 <?php
 require_once "common.php";
 session_start();
+
+function draw_login_button()
+{
+  if (isset($_SESSION['logged']) && $_SESSION['logged'] )
+  {
+    echo '          Logout:';
+    echo '          <a href="logout.php" title="Logout">'."\n".
+         '            <img src="https://assets.ubuntu.com/sites/ubuntu/latest/u/img/logos/logo-ubuntu-orange.svg">'."\n".
+         '          </a>'."\n";
+  }
+  else
+  {
+    echo '          Login with Ubuntu SSO:';
+    echo '          <a href="try_auth.php" title="Login">'."\n".
+         '            <img src="https://assets.ubuntu.com/sites/ubuntu/latest/u/img/logos/logo-ubuntu-orange.svg">'."\n".
+         '          </a>'."\n";
+  }
+}
 
 // seed the randomness, it's very confusing if within a session things are moving around
 if(! isset($_SESSION['seed']))
@@ -43,47 +62,26 @@ if(isset($_GET["seed"]))
   $_SESSION['seed'] = $_GET["seed"];
 }
 
-function draw_login_button()
-{
-  if (isset($_SESSION['logged']) && $_SESSION['logged'] )
-  {
-    echo '<a href="logout.php" title="Logout">
-    <img src="https://assets.ubuntu.com/sites/ubuntu/latest/u/img/logos/logo-ubuntu-orange.svg">
-    </a>';
-  }
-  else
-  {
-    echo '<a href="try_auth.php" title="Login">
-    <img src="https://assets.ubuntu.com/sites/ubuntu/latest/u/img/logos/logo-ubuntu-orange.svg">
-    </a>';
-  }
-}
+echo '  <div id="wrapper">'."\n".
+     '    <div id="leftcontainer">'."\n".
+     '      <div id="leftcontents">'."\n";
 
-draw_login_button(); 
-echo passthru("./filter_photos.py ".$_SERVER['HTTP_HOST']." ".$_SESSION['seed'])
+echo passthru("./filter_photos.py ".$_SERVER['HTTP_HOST']." ".$_SESSION['seed']);
+
+echo '      </div>'."\n".
+     '    </div>'."\n".
+     '    <div id="rightcontainer">'."\n".
+     '      <div id="rightcontents">'."\n".
+     '        <div id="rightinner">'."\n";
+draw_login_button();
+echo '        </div>'.
+     '      </div>'.
+     '    </div>'.
+     '  </div>'.
+     '  <div id="footer">';
+echo "CONTENTS";
+echo '  </div>';
+
 ?>
-</div>
 </body>
 </html>
-
-
-
-<?php
-#  <div id="wrapper">
-#    <div id="leftcontainer">
-#      <div id="leftcontents">
-#        CONTENTS
-#      </div>
-#    </div>
-#    <div id="rightcontainer">
-#      <div id="rightcontents">
-#        <div id="rightinner">
-#          CONTENTS
-#        </div>
-#      </div>
-#    </div>
-#  </div>
-#  <div id="footer">
-#    Footer
-#  </div>
-?>
