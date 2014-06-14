@@ -10,6 +10,7 @@ html, body {
   font-size: 120%;
   margin: 0px;
   padding: 0px;
+  text-align: center;
   position: relative;
   vertical-align: top;
 }
@@ -31,8 +32,8 @@ html, body {
 
 .droptarget {
   margin: 5px;
-  width: 250px;
-  height: 180px;
+  width: 150px;
+  height: 90px;
   border-color: #2C001E;
   border-style: solid;
   border-width: 5px;
@@ -151,6 +152,8 @@ p{
 
 .entryphoto {
   padding: 6px;
+  max-height: 300px;
+  max-width: 300px;
 }
 
 img{
