@@ -2,6 +2,7 @@
 import json
 import sys
 import random
+import titlecase
 
 subdomain = sys.argv[1].split(".")[0]
 if len(sys.argv) > 2:
@@ -68,7 +69,7 @@ num_photos = 0
 for photo in random.sample(filtered_photos,len(filtered_photos)):
   try:
     human_title = "{} by {}".format(
-        html_escape(photo.get('title',"?").encode('ascii', 'xmlcharrefreplace').title()),
+        html_escape(titlecase.titlecase(photo.get('title',"?")).encode('ascii', 'xmlcharrefreplace')),
         html_escape(photo.get('ownername',"?").encode('ascii', 'xmlcharrefreplace'))
       )
     photo_page = "https://www.flickr.com/photos/{owner}/{pid}/in/pool-{poolid}".format(
