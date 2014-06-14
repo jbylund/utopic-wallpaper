@@ -66,26 +66,26 @@ html, body {
 }
 
 .purple {
-  color: #5e2750;
+  color: #2C001E;
 }
 
 .purple:link {
-  color: #5e2750;
+  color: #2C001E;
 }
 
 /* visited link */
 .purple:visited {
-  color: #5e2750;
+  color: #2C001E;
 }
 
 /* mouse over link */
 .purple:hover {
-  color: #5e2750;
+  color: #2C001E;
 }
 
 /* selected link */
 .purple:active {
-  color: #5e2750;
+  color: #2C001E;
 }
 
 
