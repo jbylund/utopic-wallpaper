@@ -78,7 +78,7 @@ for photo in random.sample(filtered_photos,len(filtered_photos)):
         pid=photo.get('id'),
         poolid=poolid
       )
-    img_tag = '<img border="0" src="{src}" title="{title}" alt="{title}" style="max-width:320px;max-height:320px;">'.format(
+    img_tag = '<img class="draggable" border="0" src="{src}" title="{title}" alt="{title}" style="max-width:320px;max-height:320px;">'.format(
         url = photo_page,
         src = photo['url_m'],
         title = human_title,
