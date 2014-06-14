@@ -7,6 +7,7 @@ echo passthru("/usr/bin/python make_title.py ".$_SERVER['HTTP_HOST']);
 ?>
 </title>
 <!-- Main style sheets for CSS2 capable browsers -->
+<link rel="stylesheet" type="text/css" media="screen" href="local.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="https://assets.ubuntu.com/sites/guidelines/css/dev/beta/ubuntu-styles.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="https://assets.ubuntu.com/sites/ubuntu/latest/u/css/styles.css" />
 <link rel="stylesheet" type="text/css" media="screen and (min-width: 768px)" href="https://assets.ubuntu.com/sites/ubuntu/latest/u/css/global.css" />
@@ -74,13 +75,13 @@ echo '      </div>'."\n".
      '      <div id="rightcontents">'."\n".
      '        <div id="rightinner">'."\n";
 draw_login_button();
-echo '        </div>'.
-     '      </div>'.
-     '    </div>'.
-     '  </div>'.
-     '  <div id="footer">';
-echo "CONTENTS";
-echo '  </div>';
+echo '        </div>'."\n".
+     '      </div>'."\n".
+     '    </div>'."\n".
+     '  </div>'."\n".
+     '  <div id="headerwrapper">'."\n";
+echo passthru("cat footer_contents.html");
+echo '  </div>'."\n";
 
 ?>
 </body>
