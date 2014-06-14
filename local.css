@@ -4,7 +4,7 @@ html, body {
   padding: 0px;
 }
 
-#header {
+.header {
   text-align: center;
   margin: 0px;
   width: 100%;
@@ -15,7 +15,7 @@ html, body {
   color: #ffffff;
 }
 
-#headerwrapper {
+.headerwrapper {
   display: table;
   height: 7%;
   margin: 0px;
@@ -64,6 +64,8 @@ html, body {
   margin: 0px;
   text-align: center;
 }
+
+.droptarget
 
 .purple {
   color: #2C001E;
