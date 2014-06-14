@@ -47,6 +47,12 @@ function update_sidebar_class()
 
 $(document).ready(function ()
 {
+  $(".draggable").draggable({
+      revert: true,
+      helper: 'clone',
+      zIndex: 100,
+      containment: "#wrapper"
+    });
   update_sidebar_class(); // run after finishing the load 
   $(window).scroll(function ()
   {
