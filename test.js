@@ -58,13 +58,13 @@ function update_draggables()
     revert: true,
     helper: 'clone',
     zIndex: 100,
-    containment: shrink_size("#wrapper",215,120),
+    containment: shrink_size("#wrapper",170,300), // these are the entrysize dimensions - dropsize dimensions
     start: function(e, ui) {
       var x = $(ui.helper);
       var y = $(ui.helper);
-      $(ui.helper).addClass("indragimage");
+      $(ui.helper).addClass("dropsize");
     },
-    cursorAt: {left: 100, top: 60}
+    cursorAt: {left: 75, top: 45} // these are half the dropsize dimensions
   });
   $(".droptarget").droppable({
     tolerance: 'pointer'
