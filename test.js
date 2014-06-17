@@ -1,3 +1,15 @@
+if (!String.prototype.format) {
+  String.prototype.format = function() {
+    var args = arguments;
+    return this.replace(/{(\d+)}/g, function(match, number) { 
+      return typeof args[number] != 'undefined'
+        ? args[number]
+        : match
+      ;
+    });
+  };
+}
+
 function update_sidebar_class()
 {
   var wintop = $(this).scrollTop(); // number of pixels hidden before
@@ -55,8 +67,10 @@ function shrink_size(frameId, delta_x, delta_y) {
 function update_draggables()
 {
   $(".draggable").draggable({
-    revert: true,
+    revert: 'invalid',
     helper: 'clone',
+    snap: true,
+    snapMode: 'inner',
     zIndex: 100,
     containment: shrink_size("#wrapper",170,300), // these are the entrysize dimensions - dropsize dimensions
     start: function(e, ui) {
@@ -66,8 +80,21 @@ function update_draggables()
     },
     cursorAt: {left: 75, top: 45} // these are half the dropsize dimensions
   });
+
   $(".droptarget").droppable({
-    tolerance: 'pointer'
+    tolerance: 'pointer',
+    drop: function( event, ui ) {
+//      $(this).removeClass();
+      $(this).addClass("dropped");
+      $(this).empty();
+      ui.helper.removeClass();
+      var src = ui.helper.attr('src');
+      var title = ui.helper.attr('title');
+      $(this).append('<img src="{0}" title="{1}" class="{2} {3}">'.format(src,title,"dropped","dropsize"));
+//      console.log(ui.helper.html());
+//      console.log(ui.helper.text());
+//      alert("|" + ui.helper.html() + "|"); // attr('src')
+    }
   });
 }
 
