@@ -4,6 +4,10 @@ html, body {
   padding: 0px;
 }
 
+img {
+  padding: 4px;
+}
+
 #rightcontainer {
   background: #aea79f;
   display: table-cell;
@@ -39,6 +43,10 @@ html, body {
   border-width: 5px;
   display: inline-block;
   vertical-align: middle;
+}
+
+.dropped {
+  padding: 0px;
 }
 
 .dropsize {
@@ -133,6 +141,8 @@ html, body {
   height: auto !important;
   bottom: 0;
   right: 0;
+  width: 30%;
+  left: 70%;
 }
 
 .all_visible {
@@ -161,6 +171,3 @@ p{
   max-width: 300px;
 }
 
-img{
-  padding: 4px;
-}
