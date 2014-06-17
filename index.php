@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 <title>
 <?php
 echo passthru("/usr/bin/python make_title.py ".$_SERVER['HTTP_HOST']);
@@ -76,7 +77,8 @@ echo '      </div>'."\n".
      '        <div id="rightinner">'."\n";
 draw_login_button();
 echo passthru("python make_drop_targets.py");
-echo '        </div>'."\n".
+echo '        <div></div>'."\n".
+     '        </div>'."\n".
      '      </div>'."\n".
      '    </div>'."\n".
      '  </div>'."\n".
