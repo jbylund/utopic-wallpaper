@@ -85,15 +85,28 @@ function update_draggables()
     tolerance: 'pointer',
     drop: function( event, ui ) {
       $(this).addClass("dropped");
-      $(this).empty();
-      ui.helper.removeClass();
-      var src = ui.helper.attr('src');
-      var title = ui.helper.attr('title');
-      $(this).append('<img src="{0}" title="{1}" class="{2} {3}">'.format(src,title,"dropped","dropsize"));
-      $(ui.draggable).draggable('disable');
-//      console.log(ui.helper.html());
-//      console.log(ui.helper.text());
-//      alert("|" + ui.helper.html() + "|"); // attr('src')
+      if ($(ui.draggable).hasClass("entryphoto")) // if its an entry photo then make the original not draggable
+      {
+        $(this).empty();
+        ui.helper.removeClass();
+        var src = ui.helper.attr('src');
+        var title = ui.helper.attr('title');
+        $(this).append('<img src="{0}" title="{1}" class="{2} {3} {4}">'.format(src,title,"dropped","dropsize","voted"));
+        $(ui.draggable).draggable('disable');
+      }
+      else // otherwise it can stay draggable
+      {
+        $(this).empty();
+        var src = ui.draggable.attr('src');
+        var title = ui.draggable.attr('title');
+        $(this).append('<img src="{0}" title="{1}" class="{2} {3} {4}">'.format(src,title,"dropped","dropsize","voted"));
+        $(ui.draggable).remove();
+      }
+      $(".voted").draggable({
+          revert: false,
+          snap: true,
+          snapMode: 'inner'
+        });
     }
   });
 }
@@ -102,11 +115,14 @@ $(document).ready(function ()
 {
   update_draggables();
   update_sidebar_class(); // run after finishing the load 
-  $(window).scroll(function ()
+
+  $(window).scroll(function () // run at every scroll
   {
-    update_sidebar_class(); // run at every scroll
+    update_sidebar_class();
   });
-  $(window).resize(function() {
+
+  $(window).resize(function() // run at every resize
+  {
     update_draggables();
     update_sidebar_class();
   });
