@@ -69,7 +69,7 @@ function update_draggables()
   $(".draggable").draggable({
     revert: 'invalid',
     helper: 'clone',
-    snap: true,
+    snap: '.droptarget',
     snapMode: 'inner',
     zIndex: 100,
     containment: shrink_size("#wrapper",170,300), // these are the entrysize dimensions - dropsize dimensions
@@ -104,8 +104,9 @@ function update_draggables()
       }
       $(".voted").draggable({
           revert: false,
-          snap: true,
-          snapMode: 'inner'
+          snap: '.droptarget',
+          snapMode: 'inner',
+          containment: '#wrapper'
         });
     }
   });
