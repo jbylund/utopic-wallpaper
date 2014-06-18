@@ -85,9 +85,10 @@ function update_draggables()
     tolerance: 'pointer',
     drop: function( event, ui ) {
       $(this).addClass("dropped");
+      $(this).empty(); 
+      // check if it already contains a photo, if so need to "reactivate" that one
       if ($(ui.draggable).hasClass("entryphoto")) // if its an entry photo then make the original not draggable
       {
-        $(this).empty();
         ui.helper.removeClass();
         var src = ui.helper.attr('src');
         var title = ui.helper.attr('title');
@@ -96,7 +97,6 @@ function update_draggables()
       }
       else // otherwise it can stay draggable
       {
-        $(this).empty();
         var src = ui.draggable.attr('src');
         var title = ui.draggable.attr('title');
         $(this).append('<img src="{0}" title="{1}" class="{2} {3} {4}">'.format(src,title,"dropped","dropsize","voted"));
@@ -106,7 +106,14 @@ function update_draggables()
           revert: false,
           snap: '.droptarget',
           snapMode: 'inner',
-          containment: '#wrapper'
+          containment: '#wrapper',
+          revert: function(valid) {
+            if(!valid) {
+              $(this).remove();
+              // need to reactivate the parent draggable
+            }
+            return false;
+          }
         });
     }
   });
