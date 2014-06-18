@@ -84,13 +84,13 @@ function update_draggables()
   $(".droptarget").droppable({
     tolerance: 'pointer',
     drop: function( event, ui ) {
-//      $(this).removeClass();
       $(this).addClass("dropped");
       $(this).empty();
       ui.helper.removeClass();
       var src = ui.helper.attr('src');
       var title = ui.helper.attr('title');
       $(this).append('<img src="{0}" title="{1}" class="{2} {3}">'.format(src,title,"dropped","dropsize"));
+      $(ui.draggable).draggable('disable');
 //      console.log(ui.helper.html());
 //      console.log(ui.helper.text());
 //      alert("|" + ui.helper.html() + "|"); // attr('src')
