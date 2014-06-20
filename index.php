@@ -7,7 +7,7 @@
 echo passthru("/usr/bin/python make_title.py ".$_SERVER['HTTP_HOST']);
 ?>
 </title>
-<!-- Main style sheets for CSS2 capable browsers -->
+<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Ubuntu' />
 <link rel="stylesheet" type="text/css" media="screen" href="https://assets.ubuntu.com/sites/guidelines/css/dev/beta/ubuntu-styles.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="https://assets.ubuntu.com/sites/ubuntu/latest/u/css/styles.css" />
 <link rel="stylesheet" type="text/css" media="screen and (min-width: 768px)" href="https://assets.ubuntu.com/sites/ubuntu/latest/u/css/global.css" />
@@ -40,14 +40,14 @@ function draw_login_button()
   {
     echo "          Logout:\n";
     echo '          <a href="logout.php" title="Logout">'."\n".
-         '            <img style="vertical-align: bottom; margin: 3px; padding: 0px;" src="https://assets.ubuntu.com/sites/ubuntu/latest/u/img/logos/logo-ubuntu-orange.svg">'."\n".
+         '            <img style="vertical-align: bottom; margin: 3px; padding: 0px;" src="ubuntu_assets/logo-ubuntu-orange.svg">'."\n".
          '          </a>'."\n";
   }
   else
   {
     echo '          Login with Ubuntu SSO:';
     echo '          <a href="try_auth.php" title="Login">'."\n".
-         '            <img style="vertical-align: bottom; margin: 3px; padding: 0px;" src="https://assets.ubuntu.com/sites/ubuntu/latest/u/img/logos/logo-ubuntu-orange.svg">'."\n".
+         '            <img style="vertical-align: bottom; margin: 3px; padding: 0px;" src="ubuntu_assets/logo-ubuntu-orange.svg">'."\n".
          '          </a>'."\n";
   }
   echo "          <div></div>\n";
