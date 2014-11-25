@@ -11,8 +11,11 @@ def name_to_number(iname):
 def main():
   config = json.load(open("./config.json"))
   release = sys.argv[1].split(".")[0]
-  if release not in config:
+  if 2 == len(sys.argv[1].split(".")):
     release = "utopic"
+  elif release not in config:
+    print "?"
+    return
   print "Ubuntu {} {} ({}) Wallpapers".format(release, config[release]['animal'], name_to_number(release)).title()
 
 if "__main__" == __name__:
