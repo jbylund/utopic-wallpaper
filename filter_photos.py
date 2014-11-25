@@ -10,8 +10,11 @@ if len(sys.argv) > 2:
 config = json.load(open("config.json"))
 
 subdomain = sys.argv[1].split(".")[0]
-if subdomain not in config:
+if 2 == len(sys.argv[1].split(".")):
   subdomain = 'utopic'
+
+if subdomain not in config:
+  sys.exit(1)
 
 group_photos = json.load(open('{}.json'.format(subdomain),'r'))
 
