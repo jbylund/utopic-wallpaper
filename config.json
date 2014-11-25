@@ -1,26 +1,32 @@
 {
     "raring": {
         "animal": "ringtail",
-        "group": "2130543@N24", 
-        "res_x": 2560, 
+        "group": "2130543@N24",
+        "res_x": 2560,
         "res_y": 1600
-    }, 
+    },
     "saucy": {
         "animal": "salamander",
-        "group": "2234951@N20", 
-        "res_x": 2560, 
+        "group": "2234951@N20",
+        "res_x": 2560,
         "res_y": 1600
-    }, 
+    },
     "trusty": {
         "animal": "tahr",
-        "group": "2535978@N21", 
-        "res_x": 2560, 
+        "group": "2535978@N21",
+        "res_x": 2560,
         "res_y": 1600
     },
     "utopic": {
         "animal": "unicorn",
-        "group": "?????", 
-        "res_x": 2560, 
+        "group": "2687101@N20",
+        "res_x": 2560,
+        "res_y": 1600
+    },
+    "vivid": {
+        "animal": "vervet",
+        "group": "?",
+        "res_x": 2560,
         "res_y": 1600
     }
 }
