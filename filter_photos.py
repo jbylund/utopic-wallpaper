@@ -4,13 +4,14 @@ import sys
 import random
 import titlecase
 
-subdomain = sys.argv[1].split(".")[0]
 if len(sys.argv) > 2:
   random.seed(sys.argv[2])
 
 config = json.load(open("config.json"))
+
+subdomain = sys.argv[1].split(".")[0]
 if subdomain not in config:
-  sys.exit(1)
+  subdomain = 'utopic'
 
 group_photos = json.load(open('{}.json'.format(subdomain),'r'))
 
@@ -68,6 +69,9 @@ for photo in group_photos['photos']['photo']:
 poolid = config[subdomain]['group']
 num_photos = 0
 for photo in random.sample(filtered_photos,len(filtered_photos)):
+  for key in photo:
+    if key.startswith("url_"):
+      photo[key] = "/".join([subdomain] + [photo[key].split("/")[-1]])
   try:
     human_title = "{} by {}".format(
         html_escape(titlecase.titlecase(photo.get('title',"?")).encode('ascii', 'xmlcharrefreplace')),
