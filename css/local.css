@@ -1,0 +1,175 @@
+html, body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  color: #2C001E;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+img {
+  padding: 4px;
+}
+
+#rightcontainer {
+  background: #aea79f;
+  display: table-cell;
+  font-size: 120%;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  position: relative;
+  vertical-align: top;
+}
+
+#rightcontents {
+  display: inline;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+/*  width: 100%;*/
+/*  background: #aa0000;*/
+}
+
+#rightinner {
+  display: inline;
+  padding: 15px;
+  margin: 0px;
+  text-align: center;
+/*  background: #00aa00;*/
+}
+
+.droptarget {
+  margin: 5px;
+  border-color: #2C001E;
+  border-style: solid;
+  border-width: 5px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.dropped {
+  padding: 0px;
+}
+
+.dropsize {
+  width: 150px;
+  height: 90px;
+}
+
+.header {
+  text-align: center;
+  margin: 0px;
+  width: 100%;
+  font-size: 180%;
+  vertical-align: middle;
+  display: table-cell;
+  background: #dd4814;
+  color: #ffffff;
+}
+
+.headerwrapper {
+  display: table;
+  height: 7%;
+  margin: 0px;
+  min-height: 50px;
+  text-align: center;
+  width: 100%;
+}
+
+#wrapper {
+  display: table;
+  height: 86%;
+  margin: 0px;
+  min-height: 86%;
+  padding: 0px;
+  position: relative;
+  width: 100%;
+}
+
+#leftcontainer {
+  width: 70%;
+  display: table-cell;
+}
+
+#leftcontents {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.purple {
+  color: #2C001E;
+}
+
+.purple:link {
+  color: #2C001E;
+}
+
+/* visited link */
+.purple:visited {
+  color: #2C001E;
+}
+
+/* mouse over link */
+.purple:hover {
+  color: #2C001E;
+}
+
+/* selected link */
+.purple:active {
+  color: #2C001E;
+}
+
+
+.hiddena {
+  position: relative;
+}
+
+.hiddenb {
+  position: relative;
+}
+
+.excluded_top {
+  height: auto;
+  position: relative;
+}
+
+.excluded_both {
+  height: auto;
+  position: relative;
+}
+
+.excluded_bot {
+  position: absolute;
+  height: auto !important;
+  bottom: 0;
+  right: 0;
+  width: 30%;
+  left: 70%;
+}
+
+.all_visible {
+  position: fixed;
+  width:    30%;
+  top:      6px;
+  height:  auto;
+  left:     70%;
+}
+
+p{
+/*  border: 0px;*/
+/*  margin: 0px;*/
+  text-align: justify;
+  padding: 10px;
+}
+
+.indragimage {
+  max-width: 200px !important;
+  max-height: 200px !important;
+}
+
+.entryphoto {
+  padding: 6px;
+  max-height: 300px;
+  max-width: 300px;
+}
+
