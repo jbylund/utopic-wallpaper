@@ -7,7 +7,7 @@
 echo passthru("/usr/bin/python make_title.py ".$_SERVER['HTTP_HOST']);
 ?>
 </title>
-<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Ubuntu' />
+<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Ubuntu' />
 <link rel="stylesheet" type="text/css" media="screen" href="https://assets.ubuntu.com/sites/guidelines/css/dev/beta/ubuntu-styles.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="https://assets.ubuntu.com/sites/ubuntu/latest/u/css/styles.css" />
 <link rel="stylesheet" type="text/css" media="screen and (min-width: 768px)" href="https://assets.ubuntu.com/sites/ubuntu/latest/u/css/global.css" />
