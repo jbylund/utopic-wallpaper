@@ -1,4 +1,16 @@
 {
+    "precise": {
+        "animal": "pangolin",
+        "group": "1860176@N24",
+        "res_x": 2560,
+        "res_y": 1600
+    },
+    "quantal": {
+        "animal": "quetzal",
+        "group": "2024622@N25",
+        "res_x": 2560,
+        "res_y": 1600
+    },
     "raring": {
         "animal": "ringtail",
         "group": "2130543@N24",
